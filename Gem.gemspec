@@ -1,11 +1,10 @@
-# coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'jekyll/theme/assets/version'
 
+# coding: utf-8
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-assets"
-  spec.version       = Jekyll::Theme::Assets::VERSION
+  spec.version       = "0.1.0"
   spec.authors       = ["Pavel Tsurbeleu"]
   spec.email         = ["pavel.tsurbeleu@me.com"]
 
@@ -24,4 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.14"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.0"
+  spec.add_development_dependency "pry"
 end
