@@ -1,17 +1,27 @@
 require 'jekyll-assets'
+require 'theme'
 
 # Jekyll Assets hook to discover and register assets of a gem-based Jekyll theme.
 Jekyll::Assets::Hook.register :env, :init do
   # Nothing to do if there is no theme
   return unless jekyll.theme
-  # Initialize
-  assets_base = jekyll.theme.assets_path
+  # fetch from theme's "assets" folder
+  fetch_theme_assets(jekyll.theme.public_assets_path)
+  # fetch from theme's "_assets" folder
+  fetch_theme_assets(jekyll.theme.private_assets_path)
+end
 
+private
+
+# Simple helper to fetch assets from theme
+def fetch_theme_assets(base_path)
+  # Base path is resolved to nil unless it does exists
+  return unless base_path
   # Similar snippets could be found in Jekyll's code base (namely reader.rb)
-  dot_sources = Dir.chdir(assets_base) { filter_entries(Dir.entries("."), assets_base) }
+  dot_sources = Dir.chdir(base_path) { filter_entries(Dir.entries("."), base_path) }
   dot_sources.each do |source|
     # TODO: Replace with the link to the original thread on Github on the subject...
-    jekyll.sprockets.append_path(File.join(assets_base, source))
+    jekyll.sprockets.append_path(File.join(base_path, source))
   end
 end
 
