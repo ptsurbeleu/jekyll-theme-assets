@@ -4,12 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 # coding: utf-8
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-assets"
-  spec.version       = "0.1.1"
+  spec.version       = "0.1.2"
   spec.authors       = ["Pavel Tsurbeleu"]
   spec.email         = ["pavel.tsurbeleu@me.com"]
 
   spec.summary       = %q{Assets for a gem-based Jekyll theme}
-  spec.description   = %q{A Jekyll plugin, that allows you to use assets defined in a gem-based Jekyll theme.}
+  spec.description   = %q{A Jekyll plugin, that allows you to use private and public assets defined in a gem-based Jekyll theme.}
   spec.homepage      = "https://github.com/ptsurbeleu/jekyll-theme-assets/"
   spec.license       = "MIT"
   spec.has_rdoc      = false
